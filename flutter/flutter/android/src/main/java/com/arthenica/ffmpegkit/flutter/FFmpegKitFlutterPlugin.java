@@ -155,6 +155,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
 
     @SuppressWarnings("deprecation")
     public static void registerWith(final io.flutter.plugin.common.PluginRegistry.Registrar registrar) {
+        // This method is kept for backwards compatibility with Flutter v1 embedding
         final Context context = (registrar.activity() != null) ? registrar.activity() : registrar.context();
         if (context == null) {
             Log.w(LIBRARY_NAME, "FFmpegKitFlutterPlugin can not be registered without a context.");
@@ -194,6 +195,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
 
     @Override
     public void onAttachedToActivity(@NonNull ActivityPluginBinding activityPluginBinding) {
+        this.activityPluginBinding = activityPluginBinding;
         Log.d(LIBRARY_NAME, String.format("FFmpegKitFlutterPlugin %s attached to activity %s.", this, activityPluginBinding.getActivity()));
         init(flutterPluginBinding.getBinaryMessenger(), flutterPluginBinding.getApplicationContext(), activityPluginBinding.getActivity(), null, activityPluginBinding);
     }
@@ -205,6 +207,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
 
     @Override
     public void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding activityPluginBinding) {
+        this.activityPluginBinding = activityPluginBinding;
         onAttachedToActivity(activityPluginBinding);
     }
 
