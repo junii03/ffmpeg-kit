@@ -2,6 +2,11 @@ analyzer:
   errors:
     missing_required_param: warning
     missing_return: warning
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+
+test/null_safety_test.dart:
 
 linter:
   rules:
@@ -31,7 +36,6 @@ linter:
     - only_throw_errors
     - overridden_fields
     - package_api_docs
-    - package_names
     - package_prefixed_library_names
     - prefer_asserts_in_initializer_lists
     - prefer_const_constructors
@@ -60,3 +64,4 @@ linter:
     - unnecessary_string_interpolations
     - use_string_buffers
     - void_checks
+    
